@@ -1,0 +1,177 @@
+/* Style global */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1a1c23; /* Doux bleu foncé */
+  color: #e0e0e0; /* Couleur de texte claire */
+  margin: 0;
+  height: 100vh;
+  overflow: hidden; /* Empêche le défilement */
+}
+
+/* Conteneur principal */
+.app {
+  margin: 50px auto;
+  text-align: center;
+  background: #2c2f38; /* Couleur de fond douce */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7); /* Ombre subtile */
+  width: 80%;
+  max-width: 800px;
+}
+
+/* Titre du jeu */
+h1 {
+  margin-bottom: 15px;
+  font-size: 32px;
+  color: #a5d6a7; /* Doux vert pastel */
+  text-shadow: 0 0 6px #a5d6a7, 0 0 12px rgba(165, 214, 167, 0.7);
+}
+
+/* Conteneur de la grille et des statistiques */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+/* Grille */
+.grid {
+  display: grid;
+  grid-template-rows: repeat(20, 1fr);
+  grid-template-columns: repeat(20, 1fr);
+  background: rgba(44, 47, 56, 0.8);
+  border: 3px solid #a5d6a7; /* Bordure douce */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(165, 214, 167, 0.6);
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1; /* Garde la grille carrée */
+}
+
+/* Cellules */
+.cell {
+  width: 100%;
+  height: 100%;
+  background: #343944; /* Fond doux */
+  border-radius: 3px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cell.snake {
+  background: #90caf9; /* Bleu pastel pour le serpent */
+  box-shadow: 0 0 10px rgba(144, 202, 249, 0.8);
+  transform: scale(1.1); /* Effet de mise en avant */
+}
+
+.cell.food {
+  background: #ffcc80; /* Orange pastel pour la nourriture */
+  border-radius: 50%; /* Rond pour différencier */
+  box-shadow: 0 0 8px rgba(255, 204, 128, 0.8);
+  animation: pulse 1.2s infinite;
+}
+
+/* Animation des cellules */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(255, 204, 128, 0.8);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 204, 128, 1);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(255, 204, 128, 0.8);
+  }
+}
+
+/* Statistiques */
+.stats {
+  background: #2c2f38;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.7);
+  color: #e0e0e0;
+  text-align: left;
+  width: 250px;
+}
+
+.stats h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #a5d6a7;
+}
+
+.stats p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.stats .score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffcc80;
+}
+
+/* Boutons dans la section controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espacement entre les boutons */
+  margin-top: 20px;
+}
+
+.controls button {
+  background-color: #444;
+  color: #ffffff;
+  border: 2px solid transparent;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.controls button:hover {
+  background-color: #666;
+  border-color: #81c784;
+  transform: translateY(-2px); /* Légère élévation */
+}
+
+.controls button:active {
+  background-color: #555;
+  border-color: #4caf50;
+  transform: translateY(0); /* Supprime l'élévation */
+}
+
+/* Boutons dans la section stats */
+.stats button {
+  background: linear-gradient(135deg, #81c784, #66bb6a); /* Dégradé vert */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 7px;
+  width: 110px;
+}
+
+.stats button:hover {
+  background: linear-gradient(135deg, #66bb6a, #4caf50); /* Inversion du dégradé */
+  transform: translateY(-2px);
+}
+
+.stats button:active {
+  background: #388e3c; /* Vert foncé pour un clic actif */
+  transform: translateY(0);
+}
