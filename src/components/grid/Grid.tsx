@@ -1,6 +1,5 @@
 import React from "react";
 import "./Grid.css";
-import Snake from "../snake/Snake";
 
 interface GridProps {
   rows: number;
